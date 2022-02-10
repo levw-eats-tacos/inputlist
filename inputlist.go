@@ -16,9 +16,11 @@ import (
  */
 func GetListFloat64(format ...string) map[int]float64 {
 	cin := bufio.NewScanner(os.Stdin)
+
 	input := make(map[int]float64)
+	fmt.Print(format[0])
 	for i := 0; cin.Scan(); i++ {
-		if i < len(format) {
+		if i < len(format) && i != 0 {
 			fmt.Print(format[i])
 		}
 		text := strings.TrimSpace(cin.Text())
