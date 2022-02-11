@@ -19,8 +19,8 @@ func GetListFloat64(format ...string) map[int]float64 {
 
 	input := make(map[int]float64)
 	fmt.Print(format[0])
-	for i := 0; cin.Scan(); i++ {
-		if i < len(format) && i != 0 {
+	for i := 1; cin.Scan(); i++ {
+		if i < len(format) {
 			fmt.Print(format[i])
 		}
 		text := strings.TrimSpace(cin.Text())
@@ -28,7 +28,7 @@ func GetListFloat64(format ...string) map[int]float64 {
 			i--
 			continue
 		}
-		input[i], _ = strconv.ParseFloat(text, 64)
+		input[i-1], _ = strconv.ParseFloat(text, 64)
 	}
 	return input
 }
